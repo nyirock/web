@@ -212,8 +212,65 @@ links:
   - title: hire me
     url: /hire-me
 We loop through them, instead than through all pages
+* Sass introduction
+tutorial has: /css/main.css
+I'll work on /_sass/minima.css
+Changing variables and adding new ones
+** Some colors
+*** changed
+$background-color: #fefef3 !default; //background
+$brand-color:      #fe5f55 !default; //Post names and user details like email, etc.
+*** Added
+$blue-color: #92b5bd;
+$yellow-color: #ede24e;
+$red-color: #df6d59;
+$purple-color: #6b2339;
+** Base styles (_base.css)
+consistent styles across all pages
+*** headings
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  // font-weight: $base-font-weight;
+  font-weight: 500;
+  text-align: center;
+}
+
+*** links
+a {
+  color: $brand-color;
+  text-decoration: none;
+  transition: 0.3s;
+  // &:visited {
+  //   color: darken($brand-color, 15%); //not used nowadays
+  // }
+  &:hover {
+    color: $blue-color; //changed
+    text-decoration: underline;
+  }
+
+  .social-media-list &:hover {
+    text-decoration: none;
+
+    .username {
+      text-decoration: underline;
+    }
+  }
+}
 
 
+** Sass load path
+we could edit it manually
+eidt config.rb inside of /css/ (or /-sass/
+http_path = "/"
+css_dir = "."
+sass_dir = "../_sass"
+images_dir = "img"
+javascript_dir = "js"
+output_style = :compressed
+relative_assets=true
+line_comments = false
 
 
 

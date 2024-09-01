@@ -94,8 +94,18 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
+  // font-weight: $base-font-weight;
+  font-weight: 700;
+  text-align: center;
 }
+
+//different sizes for different headings
+//tag selectors and class selectors for corresponding tags
+//.mega { font-size: $mega-font-size; }
+//h1, .h1 { font-size: $h1-font-size; }
+//h2, .h2 { font-size: $h2-font-size; }
+//h3, .h3 { font-size: $h3-font-size; }
+//h4, .h4 { font-size: $h4-font-size; }
 
 
 
@@ -105,13 +115,12 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: $brand-color;
   text-decoration: none;
-
-  &:visited {
-    color: darken($brand-color, 15%);
-  }
-
+  transition: 0.5s;
+  // &:visited {
+  //   color: darken($brand-color, 15%); //not used nowadays
+  // }
   &:hover {
-    color: $text-color;
+    color: $blue-color; //changed
     text-decoration: underline;
   }
 
