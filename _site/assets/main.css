@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "bahnschrift";
+  src: url("../assets/fonts/bahnschrift.ttf");
+}
 /**
  * Reset some basic elements
  */
@@ -12,7 +16,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 100 16px/1.5 "Avenir Next", Helvetica, Arial, sans-serif;
+  font: 100 16px/1.5 "bahnschrift", "Avenir Next", Helvetica, Arial, sans-serif;
   color: #111;
   background-color: #fefef3;
   -webkit-text-size-adjust: 100%;
