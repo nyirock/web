@@ -166,7 +166,8 @@ used for RSS subscription
 ** {{  }} - to outuppt
 we use {% for logic and {{ for output
 ** | (Filters)
-https://shopify.dev/docs/api/liquid/filters/prepend
+https://shopify.dev/docs/api/liquid/filters
+**** post.content |  strip_html |  strip_newlines |  truncate: 200
 **** prepend
 string | prepend: string
 **** page.title | escape 
@@ -423,14 +424,73 @@ add some posts using [lorem-markdown](https://jaspervdj.be/lorem-markdownum/)
 ** Latest articles
 *** index.markdown
 delete all but the outermost div
-
-
-
-
-
-
-
-
+added all the posts in a loop with a _read more_ option
+<div class="home">
+<!-- section for featured post -->
+<!-- section for featured projects -->
+<!-- section for the latest articles -->
+<section class="site-section site-sectioon-last">
+    <div class="wrapper">
+        <h1>latest articles</h1>
+        <ul class="post-list">
+            {% for post in site.posts %}
+                <li class="post"> 
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.content |  strip_html |  strip_newlines |  truncate: 200 }}</p>
+                    <p class="post-read-more-link">
+                        <a href="#">read more...</a>
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+</div>
+*** _layout.css
+some basic padding
+// sections
+.site-section {
+  @extend %clearfix; //the same as applying clearfix class but using sass to @extend
+  padding-top: $h1-font-size;
+}
+.site-section-last {
+  padding-bottom: $h1-font-size;
+}
+*** /sass/components/_post.scss
+create new partial and link it inisde minima.scss
+post styling and two-column layout
+.post-list {
+    @extend %clearfix;
+    list-style: none;
+}
+.post {
+    float:left;
+    width: 50%;
+    padding: 0 3em 1em;
+}
+.post-read-more-link {
+    text-align: center;
+}
+*** ISSUE: we used width: 50% in conjunction with padding
+padding is added to the inside of the elements
+_base.scss: universal selector at the top
+whenever we combine width with padding the elements won't grow exponentially
+\* {
+  box-sizing: border-box;
+}
+*** too tight
+increased $content-width to 1200 px
+*** ISSUE: some blank spaces in the 2-column layout since posts are of different size
+inside components/_post.scss: .post
+It clear the floats for 1, 3, ..., so they start in the right place
+    &:nth-child(even) {
+        clear:both;
+    }
+*** Display articles in desc order and show the most recent only
+index.markdown
+*** Add post date
+index.markdown
+ <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
 
 

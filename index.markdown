@@ -9,17 +9,20 @@ layout: default
 <!-- section for featured post -->
 <!-- section for featured projects -->
 <!-- section for the latest articles -->
-<section class="site-section site-sectioon-last">
+<section class="site-section site-section-last">
     <div class="wrapper">
         <h1>latest articles</h1>
         <ul class="post-list">
-            <li class="post"> 
-                <h2>post title</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p class="post-read-more-link">
-                    <a href="#">read more...</a>
-                </p>
-            </li>
+            {% for post in site.posts reversed | limit: 4 %}
+                <li class="post"> 
+                    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.content |  strip_html |  strip_newlines |  truncate: 200 }}</p>
+                    <p class="post-read-more-link">
+                        <a href="#">read more...</a>
+                    </p>
+                </li>
+            {% endfor %}
         </ul>
     </div>
 </section>
