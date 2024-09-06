@@ -13,3 +13,19 @@
 .post-read-more-link {
     text-align: center;
 }
+
+// switch to one column on narrow screens
+@media(max-width:767px) {
+    .post {
+        display: flex;
+        flex-wrap: wrap;
+        float: none;
+        width: 100%;
+    }
+  }
+
+.post-featured {
+    float: none;
+    margin: 0 auto;
+    width: 80%;
+}

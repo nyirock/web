@@ -3,6 +3,7 @@ layout: post
 title:  "Spondet tamen altera vocabis ab axem coronas"
 date:   2024-09-05 12:54:23 -0600
 categories: jekyll update
+featured: true
 --- 
 
 ## Nisi cum proles fugis geminis limine

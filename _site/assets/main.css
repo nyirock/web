@@ -173,8 +173,8 @@ pre > code {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(1200px - (20px * 2));
-  max-width: calc(1200px - 20px * 2);
+  max-width: -webkit-calc(2000px - (20px * 2));
+  max-width: calc(2000px - 20px * 2);
   margin-right: auto;
   margin-left: auto;
   padding-right: 20px;
@@ -182,8 +182,8 @@ pre > code {
 }
 @media screen and (max-width: 800px) {
   .wrapper {
-    max-width: -webkit-calc(1200px - (20px));
-    max-width: calc(1200px - (20px));
+    max-width: -webkit-calc(2000px - (20px));
+    max-width: calc(2000px - (20px));
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -528,6 +528,20 @@ table td {
 
 .post-read-more-link {
   text-align: center;
+}
+
+@media (max-width: 767px) {
+  .post {
+    display: flex;
+    flex-wrap: wrap;
+    float: none;
+    width: 100%;
+  }
+}
+.post-featured {
+  float: none;
+  margin: 0 auto;
+  width: 80%;
 }
 
 /*# sourceMappingURL=main.css.map */
