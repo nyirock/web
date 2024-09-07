@@ -2,7 +2,7 @@
 layout: post
 title:  "Magni foret sorore arserat suos"
 date:   2024-09-05 12:55:23 -0600
-categories: jekyll update
+categories: blog
 tags: design
 --- 
 

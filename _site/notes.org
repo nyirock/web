@@ -549,9 +549,12 @@ tags: layout design snippet inspiration code
 ** Fixing read more... links :post.html
 <a href="{{ post.url | prepend:site.baseurl }}">read more...</a>
 *** prepend:site.baseurl is important for GitHub
-
+** Categories: splitting posts into articles and projects. Creating featured projects
+*** cd _posts && mkdir blog project
+*** mv *.markdown blog/
+*** We'll copy some of those into the project folder
+*** Inside each post in both folders add categories: blog or project
 * Issues modifications
-
 ** Extra padding after last featured article
 index.markdown: remove site-section-last class from featured articles
 ** Refactor common html into includes

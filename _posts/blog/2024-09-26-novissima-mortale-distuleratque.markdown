@@ -2,7 +2,7 @@
 layout: post
 title:  "Novissima mortale distuleratque"
 date:   2024-09-05 12:52:23 -0600
-categories: jekyll update
+categories: blog
 tags: code
 --- 
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Troes quadrupedes"
 date:   2024-09-05 12:51:23 -0600
-categories: jekyll update
+categories: blog
 tags: inspiration
 --- 
 
