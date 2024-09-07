@@ -2,7 +2,7 @@
 layout: post
 title:  "What is Markdown?"
 date:   2024-08-26 12:51:23 -0600
-categories: jekyll update
+categories: blog
 featured: true
 tags: layout design code
 ---

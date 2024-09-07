@@ -554,6 +554,55 @@ tags: layout design snippet inspiration code
 *** mv *.markdown blog/
 *** We'll copy some of those into the project folder
 *** Inside each post in both folders add categories: blog or project
+*** Inside index.markdown
+changing
+**** {% for post in site.posts reversed  %} -> {% for post in site.category['blog'] reversed  %}
+**** {% for post in site.posts reversed | limit: 4 %} -> {% for post in site.categories['blog'] reversed | limit: 4 %}
+**** Creating featured project section
+copypaste featured articles section
+remove site-section-last
+This is goint to span the whole width -> remove the "wrapper" div
+we also create project.html template
+<!-- section for featured projects -->
+<section class="site-section">
+    <h1>latest articles</h1>
+    <ul class="project-list">
+        {% for project in site.categories['project'] reversed | limit: 3 %}
+                {% include project.html %}
+        {% endfor %}
+    </ul>
+</section>
+**** Inside /_includes/project.html
+<li class="project">
+    <a href="{{ project.url }}">
+        <figure>
+            <img src="" alt="">
+            <figcaption class="project-title">
+                {{ project.title }}
+            </figcaption>
+        </figure>
+    </a>
+</li>
+**** Add featured_image inside YAML frontmatter for projects
+and inside project.html
+<img src="{{ project.featured_image }}" alt="Thumbnail for {{ project.title }}">
+**** SASS partial for project inside /_sass/components
+.project-list {
+    @extend %clearfix;
+    padding:0;
+    list-style: none;
+}
+.project {
+    float:left;
+    width:33.33%;
+    padding:0 1em;
+    text-align: center;
+}
+.project-caption {
+    margin-top: 0.5em;
+    font-size: $h3-font-size;
+}
+
 * Issues modifications
 ** Extra padding after last featured article
 index.markdown: remove site-section-last class from featured articles

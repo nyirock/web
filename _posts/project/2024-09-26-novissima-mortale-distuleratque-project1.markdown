@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Novissima mortale distuleratque"
+title:  "Project 1"
 date:   2024-09-05 12:52:23 -0600
 categories: project
+featured_image: "images/project.png"
 tags: code
 --- 
 

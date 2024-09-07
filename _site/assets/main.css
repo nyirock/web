@@ -192,7 +192,7 @@ pre > code {
 /**
  * Clearfix
  */
-.post-list:after, .site-section:after, .wrapper:after {
+.project-list:after, .post-list:after, .site-section:after, .wrapper:after {
   content: "";
   display: table;
   clear: both;
@@ -551,6 +551,23 @@ table td {
 }
 .post-tags li {
   display: inline;
+}
+
+.project-list {
+  padding: 0;
+  list-style: none;
+}
+
+.project {
+  float: left;
+  width: 33.33%;
+  padding: 0 1em;
+  text-align: center;
+}
+
+.project-caption {
+  margin-top: 0.5em;
+  font-size: 30px;
 }
 
 /*# sourceMappingURL=main.css.map */
