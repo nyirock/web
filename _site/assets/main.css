@@ -544,4 +544,13 @@ table td {
   width: 80%;
 }
 
+.post-tags {
+  min-height: 50px;
+  text-align: center;
+  margin-left: 0;
+}
+.post-tags li {
+  display: inline;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -4,6 +4,7 @@ title:  "What is Markdown?"
 date:   2024-08-26 12:51:23 -0600
 categories: jekyll update
 featured: true
+tags: layout design code
 ---
 
 Markdown is a lightweight markup language for creating formatted text using a plain-text editor. John Gruber created Markdown in 2004 as an easy-to-read markup language. Markdown is widely used for blogging and instant messaging, and also used elsewhere in online forums, collaborative software, documentation pages, and readme files. 
