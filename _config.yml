@@ -37,8 +37,8 @@ links:
     url: /work
   - title: articles
     url: /articles
-  - title: hire me
-    url: /hire-me
+  - title: about us
+    url: /about-us
 
 # Build settings
 theme: minima
