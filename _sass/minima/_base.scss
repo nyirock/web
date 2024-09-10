@@ -111,6 +111,9 @@ h2, .h2 { font-size: $h2-font-size; }
 h3, .h3 { font-size: $h3-font-size; }
 h4, .h4 { font-size: $h4-font-size; }
 
+.monospacefont {
+  font-family: $mono-font-family;
+}
 
 
 /**
@@ -153,8 +156,6 @@ blockquote {
     margin-bottom: 0;
   }
 }
-
-
 
 /**
  * Code formatting
