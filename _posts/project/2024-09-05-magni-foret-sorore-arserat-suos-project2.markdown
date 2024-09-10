@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: post"
 title:  "Project 2"
 date:   2024-09-05 12:55:23 -0600
 categories: project
-featured_image: "../images/project.png"
+featured_image: "/images/project.png"
 tags: design
 --- 
 
