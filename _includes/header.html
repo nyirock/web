@@ -2,11 +2,11 @@
   <ul>
     {% for link in site.links %}
       <li>
-        <a href="{{ link.url }}">{{ link.title }}</a>
+        <a href="{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a>
       </li>
     {% endfor %}
   </ul>
 </nav>
 <header class="site-header gradient-bar">
-    <h1 class="site-title mega"><a href="/">Simply Viral</a></h1>
+    <h1 class="site-title mega"><a href="{{ site.baseurl }}">Simply Viral</a></h1>
 </header>
