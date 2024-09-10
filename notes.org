@@ -764,9 +764,18 @@ baseurl: "/web"
   {%- endif -%}
 </head>
 *** header.html
+prepended that as well
+*** needed to delete main.css inside /assets to load up styles online
+*** To fix the figures
+images are inside our partials: post and project
 
 
 * Issues modifications
+
+** local site stopped pointing to root in the header
+fixed with adding a slash after {{ site.baseurl }}
+https://stackoverflow.com/questions/67567907/jekyll-site-baseurl-doesnt-link-to-homepage-when-published-via-github-page-but
+    <h1 class="site-title mega"><a href="{{ site.baseurl }}/">Simply Viral</a></h1>
 ** Extra padding after last featured article
 index.markdown: remove site-section-last class from featured articles
 ** Refactor common html into includes
