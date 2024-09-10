@@ -8,10 +8,11 @@ layout: default
       {% comment %} autors, social media, date, etc {% endcomment %}
       {{ page.date | date: "%b %-d, %Y" }}
      </p>
-     {{ if page.featured_image }}
+     {% if page.featured_image %}
       <div class="post-image monospacefont">
         <img src="{{page.featured_image }}" alt="{{ page.title }} featured image">
       </div>
+     {% endif %}
   </header>
 <div class="post-body">
   {{ content }}

@@ -163,8 +163,16 @@ Pages are not stored in a folder like posts are
 ** feed.xml
 used for RSS subscription
 * Liquid templating tags
+** post and page variables
+*** post something we do in a category loop loop
+*** page variable is a way to access an individual post
 ** {{  }} - to outuppt
 we use {% for logic and {{ for output
+** date
+{{ page.date | date: "%b %-d, %Y"}}
+*** %b - name of the month
+*** %-d - day
+*** %Y - full year
 ** | (Filters)
 https://shopify.dev/docs/api/liquid/filters
 **** post.content |  strip_html |  strip_newlines |  truncate: 200
@@ -286,7 +294,6 @@ line_comments = false
 se start a paragraph with the angle bracker
 ** a href: [text to display](http://example.com)
 ** img: ![alt text](path/to/image.png)
-
 
 * Main part: Layout & Structure
 ** Header
@@ -493,7 +500,6 @@ index.markdown
  <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
 
-
 ** Featured articles
 *** Use the structure from Latest articles index.markdown
 use for loop checking if featured == true
@@ -602,6 +608,140 @@ and inside project.html
     margin-top: 0.5em;
     font-size: $h3-font-size;
 }
+
+** Single post/project page template
+*** inside post.html  /_layouts/
+still uses default layout with lots of things. Remove the contents. Use article tag.
+Need to use page variable to display a single page
+#post.html#
+---
+layout: default
+---
+<article class="site-section site-section-last">
+  <header>
+    <h1 class="post-title"> {{ page.title }}</h1>
+    <p class="post-meta"> 
+      {% comment %} autors, social media, date, etc {% endcomment %}
+      {{ page.date | date: "%b %-d, %Y" }}
+     </p>
+     {{ if page.featured_image }}
+      <div class="post-image">
+        <img src="{{page.featured_image }}" alt="{{ page.title }} featured image">
+      </div>
+  </header>
+<div class="post-body">
+  {{ content }}
+</div>
+</article>
+*** Styles for post _post.scss
+// Single post page
+.post-header {
+    text-align: center;
+}
+.post-meta {
+    color: $blue-color;
+    font-size: $h4-font-size;
+}
+.post-body {
+    width:90%;
+    max-width: 90em;
+    margin: $h2-font-size auto;
+    h1, h2, h3, h4 {
+        max-width: 80%;
+        margin: $h2-font-size auto;
+    }
+}
+** Single pages from html
+used from post.html, deleted the metadata section: no need for that
+---
+layout: default
+---
+<article class="site-section site-section-last">
+  <header class="post-header">
+    <h1 class="post-title"> {{ page.title }}</h1>
+
+     {% if page.featured_image %}
+      <div class="post-image monospacefont">
+        <img src="{{page.featured_image }}" alt="{{ page.title }} featured image">
+      </div>
+     {% endif %}
+  </header>
+<div class="post-body">
+  {{ content }}
+</div>
+</article>
+*** /projects.html
+we use layout: default because page/post is too narrow
+project is key variable here
+---
+layout: default
+title: All projects
+permalink: /projects/
+---
+
+<div class="site-section site-section-last">
+    <header>
+        <h1> {{ page.title }} </h1>
+    </header>
+    <ul class="project-list">
+        {% for project in site.categories['project'] %}
+            {% include project.html %}
+        {% endfor %}
+    </ul>
+
+</div>  
+*** /articles.html
+Similar but key variable is post
+---
+layout: default
+title: Latest articles
+permalink: /articles/
+---
+
+<div class="site-section site-section-last">
+    <header>
+        <h1> {{ page.title }} </h1>
+    </header>
+    <ul class="post-list">
+        {% for post in site.categories['blog'] %}
+            <li class="post">
+                {% include post.html %}
+            </li>
+        {% endfor %}
+    </ul>
+</div> 
+** hire me page: css animation
+*** hire-me.html
+---
+layout: default
+title: hire me
+permalink: /hire-me/index.html
+---
+
+<div class="site-section site-section-last">
+	<header class="post-header">
+		<h1>hire me</h1>
+	</header>
+
+	<div class="post-body">
+		<p>Integer ante arcu, accumsan a, consectetuer eget, posuere ut,
+		mauris. In hac habitasse platea dictumst. Sed cursus turpis
+		vitae tortor. Vivamus in erat ut urna cursus vestibulum.
+		Phasellus a est.</p>
+
+		<ul class="abilities">
+			<li class="ability-photoshop">Photoshop</li>
+			<li class="ability-illustrator">Illustrator</li>
+			<li class="ability-ui">UI design</li>
+			<li class="ability-html">HTML</li>
+			<li class="ability-css">Sass</li>
+			<li class="ability-jekyll">Jekyll</li>
+			<li class="ability-git">git</li>
+		</ul>
+	</div>
+</div>
+* Uploading to GitHub Pages
+
 
 * Issues modifications
 ** Extra padding after last featured article
